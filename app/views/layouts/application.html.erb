@@ -10,6 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="container">
+        <div class="header__inner">
+          <h1 class="header__title">Thoughts of a thin man</h1>
+          <h2 class="header__subtitle">Some observations about art, music, books, cinema and theatre</h2>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer__inner">
+          <p class="footer__copywrite">&#169; David Trussler 2022</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
