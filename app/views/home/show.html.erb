@@ -10,9 +10,41 @@
 
     <section class="reviews-list">
       <ul>
-        <li>First review</li>
-        <li>Second review</li>
-        <li>Third review</li>
+        <li class="reviews-listing">
+          <%
+            id = 1
+            title = "The Collaboration"
+            img_thumb = "the-collaboration_thumb.jpg"
+            medium = "theatre"
+            name = "Anthony McCarten"
+          %>
+
+          <%= listing_link(id, title, img_thumb, medium, name) %>
+        </li>
+
+        <li class="reviews-listing">
+          <%
+            id = 2
+            title = "The Souvenir"
+            img_thumb = "the-souvenir_thumb.jpg"
+            medium = "cinema"
+            name = "Joanna Hogg"
+          %>
+
+          <%= listing_link(id, title, img_thumb, medium, name) %>
+        </li>
+
+        <li class="reviews-listing">
+          <%
+            id = 3
+            title = "Open the Gates"
+            img_thumb = "open-the-gates_thumb.jpg"
+            medium = "music_recorded"
+            name = "Irreversible Entanglements"
+          %>
+
+          <%= listing_link(id, title, img_thumb, medium, name) %>
+        </li>
       </ul>
     </section>
   </div>
