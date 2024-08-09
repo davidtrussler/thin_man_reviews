@@ -1,7 +1,11 @@
 require "test_helper"
 
 class ReviewTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @review = Review.new(title: "The Collaboration")
+  end
+
+  test "the title" do
+    assert_equal "The Collaboration", @review.title
+  end
 end
