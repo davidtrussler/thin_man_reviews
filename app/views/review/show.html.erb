@@ -1,9 +1,220 @@
+<%
+  # Data to be returned from database
+  medium = "theatre"
+  img_main = "the-collaboration_main.jpg"
+  img_main_caption = "Jeremy Pope (left) as Jean-Michel Basquiat and Paul Bettany as Andy Warhol"
+  title = "The Collaboration"
+  writer = "Anthony McCarten"
+  director = "Kwame Kwei-Armah"
+  venue = "Young Vic, London"
+  # TODO: format dates correctly
+  date_opening = "16 February 2022"
+  date_closing = "2 April 2022"
+  review_text = sanitize("<p>The sound of pounding house music greets the audience entering the theatre. As DJ Xana sets the mood for the action about to unfold lights flash across the auditorium and images of New York from the early eighties are projected onto screens above the stage.</p><p>The music fades and the instantly recognisable—those glasses, that white wig—figure of Andy Warhol, played by Paul Bettany, stands alone at the front of the stage staring out in awe.</p><p>He is in Bruno Bischofberger’s gallery in 1984, invited by the agent to see some new works by another of his artists, Jean-Michel Basquiat, rising star of the art world, portrayed in this production by Jeremy Pope. Bischofberger explains to a reluctant Warhol that he wants to bring the two artists together in a collaboration that will form the basis of the play.</p><p>Warhol was at this time the superstar of the art world, at home in the gallery system, while Basquiat was an outsider, a graffiti artist from the streets. As Bischofberger outlines his idea to him he too is sceptical that they can work together. <q>There’s no soul</q>, he says of Warhol, <q>I’m Dizzy Gillespie, blowing a riff, he’s one of those pianos that plays all by itself. The same tune. Over and over</q>. Nonetheless the agent gets his way and the collaboration begins.</p><p>As they work, the continuous friction between Warhol’s scrupulously neat and tidy approach to life and Basquiat’s messy persona provides a continuous backdrop.</p><p>But it is in their differing approaches to their art that the main differences lie. For the younger man making art was part of his very essence, while for Warhol art was business.</p><p>Director Kwame Kwei-Armah has said he sees the relationship between the two as being like the contestants in a boxing match. This comes through as the two men trade blows with their words, testing each other out, trying to gain the upper hand.</p><p>In two acts the play shows their relationship develop from oneupmanship to one of warm friendship and mutual understanding.</p><p>In the first act the friction between them is largely humorous. After the interval the mood darkens as the action centres around Basquiat’s friend and fellow graffiti artist Michael Stewart, as he lies in a coma in hospital after being beaten up by the police. Racism and Basquiat’s drug use becomes prominent themes.</p><p>Played out in sets, designed by Anna Fleischle, that brilliantly evoke New York loft apartments, the action moves from Warhol’s spotlessly clean and quiet working and living space in the first act to Basquiat’s more squalid surroundings in the second. Noises seep in from outside: traffic horns, sirens and violent confrontations in adjoining apartments.</p><p>The fourth wall is frequently used, initially when we see Warhol in the opening scene and then  as a device that allows the artists to work on imaginary paintings in the space between the stage and the audience.</p><p>The central performances deliver hugely believable portraits of the two artists. Bettany’s Warhol is far more loquacious than his public persona: the script, while entirely imagined, was based on his extensive diaries. At the same time he gives us a man tortured by insecurities. He uses his camera like a barrier between himself and the world and becomes at times a predatory figure behind it to the irritation of his collaborator.</p><p>Pope meanwhile moves between Basquiat as a quiet, child-like and vulnerable figure to a man full of rage, pacing the stage with anger.</p><p>The play is part of McCarten’s “Worship” trilogy that explores the place of religion, money and—central to this play—art in wider life. It sits between the 2019 Netflix film <cite>The Two Popes</cite> and the forthcoming <cite>Wednesday at Warren’s Friday at Bill’s</cite>, examining meetings between Warren Buffet and Bill Gates.</p><p>The author has simplified the reality around the events depicted to explore his central themes. The exhibition that arose from this collaboration was a flop but that isn’t touched upon here. Instead we see a hugely satisfying study of how two people, so unalike, are drawn to create in their own ways. We see how they both cope with their insecurities and, despite their differences, grow together and nurture each other. It’s a warm and touching portrait of the humanity at the heart of two distinct but great creative forces.</p>")
+%>
+
 <% provide(:title, "Review") %>
 
 <div class="review container">
-  <p class="review__back-link"><a href="/">Back to reviews</a></p>
+  <p class="review__back-link"><%= link_to "Back to reviews", root_path %></p>
 
   <article class="review__content">
-    <p>Review content goes here</p>
+    <p class="review__medium"><%= medium(medium) %></p>
+
+    <div class="review__heading">
+      <figure class="review__image">
+        <%= image_tag img_main, alt: "" %>
+
+        <% if (img_main_caption.present?) %>
+          <figcaption class="image__caption"><%= img_main_caption %></figcaption>
+        <% end %>
+      </figure>
+
+      <ul class="review__details">
+        <li class="review__title"><%= title %></li>
+        <li class="review__extra"><%= extra(medium, writer) %></li>
+
+        <% if extra_2(medium, director).present? %>
+          <li class="review__extra-2"><%= extra_2(medium, director) %></li>
+        <% end %>
+
+        <% if extra_3(medium, venue).present? %>
+          <li class="review__extra-3"><%= extra_3(medium, venue) %></li>
+        <% end %>
+
+        <% if extra_4(medium, date_opening, date_closing).present? %>
+          <li class="review__extra-4"><%= extra_4(medium, date_opening, date_closing) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="review__text"><%= review_text %></div>
   </article>
 </div>
+
+<%
+# getReview() {
+#   let html = ``;
+
+#   html += `<p class="review__medium">${this.values.medium}</p>`;
+
+#   html +=
+#     `<div class="review__heading">
+#       <figure class="review__image">
+#         <img src="${this.values.img_main}" alt=""/>`;
+
+#   if (this.values.img_main_caption) {
+#     html += `<figcaption class="image__caption">${this.values.img_main_caption}</figcaption>`;
+#   }
+
+#   html +=
+#       `</figure>
+#       <ul class="review__details">`;
+
+#   html += `<li class="review__title">${this.values.title}</li>`;
+
+#   html += `<li class="review__extra">${this.values.extra}</li>`;
+
+#   if (this.values.extra_2) {
+#     html += `<li class="review__extra-2">${this.values.extra_2}</li>`
+#   }
+
+#   if (this.values.extra_3) {
+#     html += `<li class="review__extra-3">${this.values.extra_3}</li>`
+#   }
+
+#   if (this.values.extra_4) {
+#     html += `<li class="review__extra-4">${this.values.extra_4}</li>`
+#   }
+
+#   html +=
+#       `</ul>
+#     </div>`
+
+#   html +=
+#     `<div class="review__text">
+#       ${this.data.text}
+#     </div>`
+
+#   return html;
+# }
+%>
+
+<%
+# getData() {
+#   const formatDate = (rawDate, format) => {
+#     let formattedDate = '';
+
+#     if (rawDate) {
+#       let date = new Date(rawDate);
+#       let options = { 
+#         year: 'numeric', 
+#         month: 'long', 
+#         day: 'numeric' 
+#       };
+
+#       switch (format) {
+#         case 'y':
+#           formattedDate = date.getFullYear();
+#         break;
+
+#         case 'y-m-d': 
+#           formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+#         break;
+
+#         default:
+#           formattedDate = date.toLocaleDateString('en-GB', options);
+#       }
+#     }
+
+#     return formattedDate; 
+#   }; 
+
+#   const createExtraString = (extra) => {
+#     let string = '';
+
+#     if (extra) {
+#       let extras = extra.split(',');
+
+#       for (let i = 0; i < extras.length; i++) {
+#         string += `<span>${extras[i].trim()}</span>`;
+
+#         if (i === extras.length - 2) {
+#           string += ` and `;
+#         } else if (extras.length !== 0 && i !== extras.length - 1) {
+#           string += `, `;
+#         }
+#       };
+#     }
+
+#     return string; 
+#   };
+
+#   let 
+#     id = this.review.id,
+#     medium = '',
+#     title = this.review.title,
+#     extra = '',
+#     extra_2 = '',
+#     extra_3 = '', 
+#     extra_4 = '', 
+#     img_thumb = this.review.img_thumb, 
+#     img_main = this.review.img_main,
+#     img_main_caption = this.review.img_main_caption;
+
+#   switch (this.review.medium) {
+#     case 'book':
+#       medium = 'Book';
+#       extra = `By ${createExtraString(this.review.author)}`;
+#       extra_2 = `<span>${this.review.publisher}</span>, <time datetime="${formatDate(this.review.date_publication, 'y-m-d')}">${formatDate(this.review.date_publication, 'y')}</time>`;
+#       break;
+
+#     case 'theatre':
+#       medium = 'Theatre',
+#       extra = `By ${createExtraString(this.review.writer)}`;
+#       extra_2 = `Directed by ${createExtraString(this.review.director)}`;
+#       extra_3 = this.review.venue;
+#       extra_4 = `<time datetime="${formatDate(this.review.date_opening, 'y-m-d')}">${formatDate(this.review.date_opening)}</time> to <time datetime="${formatDate(this.review.date_closing, 'y-m-d')}">${formatDate(this.review.date_closing)}</time>`;
+#       break;
+
+#     case 'cinema':
+#       medium = 'Cinema';
+#       extra = `Directed by ${createExtraString(this.review.director)}`;
+#       extra_2 = `With ${createExtraString(this.review.actors)}`;
+#       extra_3 = `${this.review.country}, <time datetime="${formatDate(this.review.date_release, 'y-m-d')}">${formatDate(this.review.date_release, 'y')}</time>`;
+#       extra_4 = `${this.review.running_time} minutes`;
+#       break;
+
+#     case 'art_visual':
+#       medium = 'Visual art';
+#       extra = this.review.venue;
+#       extra_2 = `<time datetime="${formatDate(this.review.date_opening, 'y-m-d')}">${formatDate(this.review.date_opening)}</time> to <time datetime="${formatDate(this.review.date_closing, 'y-m-d')}">${formatDate(this.review.date_closing)}</time>`;
+#       break;
+
+#     case 'music_performed':
+#       medium = 'Live music';
+#       extra = this.review.venue;
+#       extra_2 = `<time datetime="${formatDate(this.review.date_event, 'y-m-d')}">${formatDate(this.review.date_event)}</time>`;
+#       break;
+
+#     case 'music_recorded':
+#       medium = 'Recorded music';
+#       extra = `By ${createExtraString(this.review.artist)}`;
+#       extra_2 = `${this.review.label}, <time datetime="${formatDate(this.review.date_release, 'y-m-d')}">${formatDate(this.review.date_release, 'y')}</time>`;
+#       break;
+#   }
+
+#   return {
+#     id: id, 
+#     medium: medium,
+#     title: title, 
+#     extra: extra, 
+#     extra_2: extra_2,
+#     extra_3: extra_3, 
+#     extra_4: extra_4, 
+#     img_thumb: img_thumb, 
+#     img_main: img_main,
+#     img_main_caption: img_main_caption
+#   };
+# }
+%>
