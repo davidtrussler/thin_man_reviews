@@ -1,0 +1,12 @@
+// Grid
+$gutter-value: 2;
+$outer-margin: #{$gutter-value} + '%';
+$gutter: #{(100 / (100 - ($gutter-value * 2))) * $gutter-value} + '%';
+
+// Typography
+$base-font-size: 16 !default;
+
+// Colours
+$colour-black: #000;
+$colour-white: #fff;
+$colour-grey: #999;

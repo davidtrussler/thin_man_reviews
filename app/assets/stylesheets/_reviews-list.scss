@@ -1,0 +1,52 @@
+.reviews-list {
+  $image-size: 80px;
+
+  margin: 1rem 0 0;
+
+  .reviews-listing {
+    @include clearfix;
+
+    .listing__item {
+      display: -ms-grid;
+      -ms-grid-columns: $image-size auto;
+      display: grid;
+      grid-template-columns: $image-size auto;
+      column-gap: $gutter;
+      text-decoration: none;
+    }
+
+    .listing__image {
+      @include image-fit;
+
+      -ms-grid-column: 1;
+      width: $image-size;
+      height: $image-size;
+      overflow: hidden;
+
+      img {
+        aspect-ratio: 1;
+      }
+    }
+
+    .listing__content {
+      -ms-grid-column: 2;
+
+      p {
+        margin-bottom: 0;
+        line-height: 1.125;
+      }
+
+      .listing__medium {
+        @include medium;
+      }
+
+      .listing__title {
+        @include title;
+      }
+
+      .listing__extra {
+        @include extra;
+      }
+    }
+  }
+}
