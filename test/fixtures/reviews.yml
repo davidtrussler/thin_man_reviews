@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  medium: MyString
+  author: MyString
+  publisher: MyString
+  director: MyString
+  actors: MyString
+  country: MyString
+  venue: MyString
+  writer: MyString
+  artist: MyString
+  label: MyString
+  text: MyString
+  running_time: 1
+  date_publication: 2024-08-09 17:21:05
+  date_release: 2024-08-09 17:21:05
+  date_opening: 2024-08-09 17:21:05
+  date_closing: 2024-08-09 17:21:05
+  date_event: 2024-08-09 17:21:05
+
+two:
+  title: MyString
+  medium: MyString
+  author: MyString
+  publisher: MyString
+  director: MyString
+  actors: MyString
+  country: MyString
+  venue: MyString
+  writer: MyString
+  artist: MyString
+  label: MyString
+  text: MyString
+  running_time: 1
+  date_publication: 2024-08-09 17:21:05
+  date_release: 2024-08-09 17:21:05
+  date_opening: 2024-08-09 17:21:05
+  date_closing: 2024-08-09 17:21:05
+  date_event: 2024-08-09 17:21:05

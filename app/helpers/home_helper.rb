@@ -3,27 +3,29 @@
 # - infer src from title
 # - only use id (and not title) in href
 #   - I think this is not required functionally but only there for SEO
+#  - make review_path work with the id
 
 module HomeHelper
-  def listing_link(id, title, img_thumb, medium, name)
+  def listing_link(review)
     link_to sanitize(
       "<div class='listing__image'>" +
-          image_tag(img_thumb, alt: "") +
+          image_tag("#{review.title.downcase.split(" ").join "-"}_thumb", alt: "") +
         "</div>
         <div class='listing__content'>
-          <p class='listing__medium'>#{medium(medium)}</p>
-          <p class='listing__title'>#{title}</p>
-          <p class='listing__extra'>#{extra(medium, name)}</span></p>
+          <p class='listing__medium'>#{medium_string(review.medium)}</p>
+          <p class='listing__title'>#{review.title}</p>
+          <p class='listing__extra'>#{extra_string(review.medium, review)}</span></p>
         </div>"
-    ), review_path, class: 'listing__item'
+    ), "review/#{review.id}", class: 'listing__item'
   end
 
   # TODO:
   # - Should these be in private methods?
   # - Add other medis
   # - Replace with switch statements
+  # - Avoid duplication with the review helper
 
-  def medium(medium)
+  def medium_string(medium)
     if medium == "theatre"
       "Theatre"
     elsif medium == "cinema"
@@ -33,13 +35,13 @@ module HomeHelper
     end
   end
 
-  def extra(medium, name)
+  def extra_string(medium, review)
     if medium == "theatre"
-      extra = "By #{name}"
+      extra = "By #{review.writer}"
     elsif medium == "cinema"
-      extra = "Directed by #{name}"
+      extra = "Directed by #{review.director}"
     elsif medium == "music_recorded"
-      extra = "By #{name}"
+      extra = "By #{review.artist}"
     end
   end
 end
