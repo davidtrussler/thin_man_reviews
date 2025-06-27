@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   root "home#show"
 
   resources :review
+
+  # Path to admin landing page
+  get '/admin', to: 'admin#show'
+
+  get '/admin/new', to: 'admin#new'
+  post '/admin/new', to: 'admin#create'
 end
