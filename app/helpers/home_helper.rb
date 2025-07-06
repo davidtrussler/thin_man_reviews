@@ -1,16 +1,15 @@
 # TODO: 
 # - consider using link_to here for the anchor element
-# - infer src from title
 # - only use id (and not title) in href
 #   - I think this is not required functionally but only there for SEO
 #  - make review_path work with the id
 
 module HomeHelper
   def listing_link(review)
+    img_thumb = image_tag review.thumbnail_image if review.thumbnail_image.attached?
+
     link_to sanitize(
-      "<div class='listing__image'>" +
-          image_tag("#{review.title.downcase.split(" ").join "-"}_thumb.jpg", alt: "") +
-        "</div>
+      "<div class='listing__image'>" + img_thumb + "</div>
         <div class='listing__content'>
           <p class='listing__medium'>#{medium_string(review.medium)}</p>
           <p class='listing__title'>#{review.title}</p>
