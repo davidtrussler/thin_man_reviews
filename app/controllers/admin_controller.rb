@@ -13,6 +13,9 @@ class AdminController < ApplicationController
 
     @review = Review.new(review_params) # Not the final implementation!
 
+    @review.thumbnail_image.attach(params[:thumbnail_image])
+    @review.main_image.attach(params[:main_image])
+
     if @review.save
       # Handle a successful save.
       render 'show'
@@ -43,7 +46,9 @@ class AdminController < ApplicationController
       :date_opening,
       :date_closing,
       :date_event,
-      :caption
+      :caption,
+      :thumbnail_image,
+      :main_image
     )
   end
 end

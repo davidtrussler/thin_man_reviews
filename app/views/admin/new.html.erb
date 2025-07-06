@@ -99,6 +99,16 @@
       </div>
 
       <div>
+        <%= f.label :thumbnail_image %>
+        <%= f.file_field :thumbnail_image %>
+      </div>
+
+      <div>
+        <%= f.label :main_image %>
+        <%= f.file_field :main_image %>
+      </div>
+
+      <div>
         <%= f.submit "Save" %>
       </div>
     <% end %>
