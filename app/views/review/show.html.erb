@@ -10,7 +10,7 @@
   running_time = @review.running_time
   label = @review.label
   # TODO: put this logic in the helper
-  img_main = "#{@review.title.downcase.split(" ").join "-"}_main.jpg"
+  img_main = @review.main_image if @review.main_image.attached?
   img_main_caption = @review.caption
   date_release = @review.date_release
   date_opening = @review.date_opening
