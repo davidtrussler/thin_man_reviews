@@ -10,7 +10,11 @@
   running_time = @review.running_time
   label = @review.label
   # TODO: put this logic in the helper
-  img_main = @review.main_image if @review.main_image.attached?
+  if @review.main_image.attached?
+    img_main = @review.main_image
+  else
+    img_main = "no-image-fallback-main.png"
+  end
   img_main_caption = @review.caption
   date_release = @review.date_release
   date_opening = @review.date_opening

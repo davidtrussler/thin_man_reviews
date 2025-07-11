@@ -6,7 +6,11 @@
 
 module HomeHelper
   def listing_link(review)
-    img_thumb = image_tag review.thumbnail_image if review.thumbnail_image.attached?
+    if review.thumbnail_image.attached?
+      img_thumb = image_tag review.thumbnail_image
+    else
+      img_thumb = image_tag "no-image-fallback-thumb.png"
+    end
 
     link_to sanitize(
       "<div class='listing__image'>" + img_thumb + "</div>
