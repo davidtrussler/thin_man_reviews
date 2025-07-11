@@ -1,8 +1,7 @@
-# TODO: 
-# - consider using link_to here for the anchor element
+# TODO:
 # - only use id (and not title) in href
 #   - I think this is not required functionally but only there for SEO
-#  - make review_path work with the id
+# - make review_path work with the id
 
 module HomeHelper
   def listing_link(review)
@@ -17,37 +16,55 @@ module HomeHelper
         <div class='listing__content'>
           <p class='listing__medium'>#{medium_string(review.medium)}</p>
           <p class='listing__title'>#{review.title}</p>
-          <p class='listing__extra'>#{extra_string(review.medium, review)}</span></p>
+          <p class='listing__extra'>#{extra_string(review.medium, review)}</p>
         </div>"
     ), "review/#{review.id}", class: 'listing__item'
   end
 
-  # TODO:
-  # - Should these be in private methods?
-  # - Add other medis
-  # - Replace with switch statements
-  # - Avoid duplication with the review helper
+  private
 
+  # TODO:
+  # - Add other mediums
+  # - Avoid duplication with the review helper
+  #   - by putting shared methods in a shared helper
   def medium_string(medium)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       "Theatre"
-    elsif medium == "cinema"
+    when "cinema"
       "Cinema"
-    elsif medium == "music_recorded"
+    when "music_recorded"
       "Recorded music"
+    when "art_visual"
+      "Visual art"
+    else
+      "No medium"
     end
   end
 
   def extra_string(medium, review)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       extra = "By #{review.writer}"
-    elsif medium == "cinema"
+    when "cinema"
       extra = "Directed by #{review.director}"
-    elsif medium == "music_recorded"
+    when "music_recorded"
       extra = "By #{review.artist}"
+    when "art_visual"
+      extra = "#{review.venue}"
+    else
+      extra = "No information"
     end
   end
 end
+
+# Code from old version for reference
+
+# case 'art_visual':
+#   medium = 'Visual art';
+#   extra = this.review.venue;
+#   extra_2 = `<time datetime="${formatDate(this.review.date_opening, 'y-m-d')}">${formatDate(this.review.date_opening)}</time> to <time datetime="${formatDate(this.review.date_closing, 'y-m-d')}">${formatDate(this.review.date_closing)}</time>`;
+#   break;
 
 # class ListingData {
 #   constructor(review) {

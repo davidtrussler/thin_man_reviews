@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 theatre_review:
+  id: 1
   title: The Collaboration
   medium: theatre
   author:
@@ -22,6 +23,7 @@ theatre_review:
   date_event:
 
 cinema_review:
+  id: 2
   title: The Souvenir
   medium: cinema
   author:
@@ -43,6 +45,7 @@ cinema_review:
   date_event:
 
 recorded_music_review:
+  id: 3
   title: Open the Gates
   medium: music_recorded
   author:
@@ -61,4 +64,26 @@ recorded_music_review:
   date_release: 2021-11-12 00:00:00
   date_opening:
   date_closing:
+  date_event:
+
+visual_art_review:
+  id: 4
+  title: 'Anselm Kiefer: Early Works'
+  medium: art_visual
+  author:
+  publisher:
+  director:
+  actors:
+  country:
+  venue: Ashmolean Museum, Oxford
+  writer:
+  artist:
+  label:
+  text: <p>What does it mean to be an artist in the wake of the worst atrocity in human history? Is it still possible to produce beauty in such circumstances? How and why do people get seduced by the ideas and reality of genocide? Could it happen again?</p>
+  running_time:
+  caption: Die Etsch (The Adige)
+  date_publication:
+  date_release:
+  date_opening: 2025-02-14 00:00:00
+  date_closing: 2025-06-15 00:00:00
   date_event:
