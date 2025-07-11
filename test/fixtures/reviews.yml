@@ -1,41 +1,64 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  medium: MyString
-  author: MyString
-  publisher: MyString
-  director: MyString
-  actors: MyString
-  country: MyString
-  venue: MyString
-  writer: MyString
-  artist: MyString
-  label: MyString
-  text: MyString
-  running_time: 1
-  date_publication: 2024-08-09 17:21:05
-  date_release: 2024-08-09 17:21:05
-  date_opening: 2024-08-09 17:21:05
-  date_closing: 2024-08-09 17:21:05
-  date_event: 2024-08-09 17:21:05
+theatre_review:
+  title: The Collaboration
+  medium: theatre
+  author:
+  publisher:
+  director: Kwame Kwei-Armah
+  actors:
+  country:
+  venue: Young Vic, London
+  writer: Anthony McCarten
+  artist:
+  label:
+  text: <p>The sound of pounding house music greets the audience entering the theatre. As DJ Xana sets the mood for the action about to unfold lights flash across the auditorium and images of New York from the early eighties are projected onto screens above the stage.</p>
+  running_time:
+  caption: Jeremy Pope (left) as Jean-Michel Basquiat and Paul Bettany as Andy Warhol
+  date_publication:
+  date_release:
+  date_opening: 2022-02-16 00:00:00
+  date_closing: 2022-04-02 00:00:00
+  date_event:
 
-two:
-  title: MyString
-  medium: MyString
-  author: MyString
-  publisher: MyString
-  director: MyString
-  actors: MyString
-  country: MyString
-  venue: MyString
-  writer: MyString
-  artist: MyString
-  label: MyString
-  text: MyString
-  running_time: 1
-  date_publication: 2024-08-09 17:21:05
-  date_release: 2024-08-09 17:21:05
-  date_opening: 2024-08-09 17:21:05
-  date_closing: 2024-08-09 17:21:05
-  date_event: 2024-08-09 17:21:05
+cinema_review:
+  title: The Souvenir
+  medium: cinema
+  author:
+  publisher:
+  director: Joanna Hogg
+  actors: Honor Swinton Byrne, Tom Burke, Tilda Swinton
+  country: UK
+  venue:
+  writer:
+  artist:
+  label:
+  text: <p>In her fourth feature, Joanna Hogg has dramatised her own experiences of the time she spent at film school. It tells the story of a young student finding her artistic voice as a controlling relationship threatens to destroy it.</p>
+  running_time: 119
+  caption: Tom Burke (left) and Honor Swinton Byrne
+  date_publication:
+  date_release: 2019-08-30 00:00:00
+  date_opening:
+  date_closing:
+  date_event:
+
+recorded_music_review:
+  title: Open the Gates
+  medium: music_recorded
+  author:
+  publisher:
+  director:
+  actors:
+  country:
+  venue:
+  writer:
+  artist: Irreversible Entanglements
+  label: International Anthem Recording Company/Don Giovanni Records
+  text: <p>On <cite>Open the Gates</cite> Irreversible Entanglements take us on a trip through space and time via poetry and jazz, Latin and Afro-Caribbean beats, avant-garde free improvisation and other-worldly electronics. It&#8217;s an enthralling journey.</p>
+  running_time:
+  caption: Irreversible Entanglements
+  date_publication:
+  date_release: 2021-11-12 00:00:00
+  date_opening:
+  date_closing:
+  date_event:
