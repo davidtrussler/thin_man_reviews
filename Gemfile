@@ -35,4 +35,5 @@ end
 
 group :production do
   gem "pg", "1.3.5"
+  gem "google-cloud-storage", "~> 1.11", require: false
 end
