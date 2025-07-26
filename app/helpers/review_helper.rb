@@ -1,32 +1,35 @@
 module ReviewHelper
   def medium(medium)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       "Theatre"
-    elsif medium == "cinema"
+    when "cinema"
       "Cinema"
-    elsif medium == "music_recorded"
+    when "music_recorded"
       "Recorded music"
-    elsif medium == "art_visual"
+    when "art_visual"
       "Visual art"
     end
   end
 
   def extra(medium, writer, director, artist, venue)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       sanitize("By <span>#{writer}</span>")
-    elsif medium == "cinema"
+    when "cinema"
       sanitize("Directed by <span>#{director}</span>")
-    elsif medium == "music_recorded"
+    when "music_recorded"
       sanitize("By <span>#{artist}</span>")
-    elsif medium == "art_visual"
+    when "art_visual"
       venue
     end
   end
 
   def extra_2(medium, name, actors, label, date_release, date_opening, date_closing)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       sanitize("Directed by <span>#{name}</span>")
-    elsif medium == "cinema"
+    when "cinema"
       actors_string = ""
       actors = actors.split(', ')
 
@@ -41,25 +44,27 @@ module ReviewHelper
       end
 
       sanitize("With #{actors_string}")
-    elsif medium == "music_recorded"
+    when "music_recorded"
       sanitize("#{label}, <time datetime='#{date_release.strftime("%Y-%m-%d")}'>#{date_release.strftime("%Y")}</time>")
-    elsif medium == "art_visual"
+    when "art_visual"
       sanitize("<time datetime='#{date_opening.strftime("%Y-%m-%d")}'>#{date_opening.strftime("%-e %B %Y")}</time> to <time datetime='#{date_closing.strftime("%Y-%m-%d")}'>#{date_closing.strftime("%-e %B %Y")}</time>")
     end 
   end
 
   def extra_3(medium, name, country, date_release)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       name
-    elsif medium == "cinema"
+    when "cinema"
       sanitize("#{country}, <time datetime='#{date_release.strftime("%Y-%m-%d")}'>#{date_release.strftime('%Y')}</time>")
     end
   end
 
   def extra_4(medium, date_opening, date_closing, running_time)
-    if medium == "theatre"
+    case medium
+    when "theatre"
       sanitize("<time datetime='#{date_opening.strftime("%Y-%m-%d")}'>#{date_opening.strftime("%e %B %Y")}</time> to <time datetime='#{date_closing.strftime("%Y-%m-%d")}}'>#{date_closing.strftime("%-e %B %Y")}</time>")
-    elsif medium == "cinema"
+    when "cinema"
       "#{running_time} minutes"
     end
   end
