@@ -41,10 +41,10 @@
 
       <ul class="review__details">
         <li class="review__title"><%= title %></li>
-        <li class="review__extra"><%= extra(medium, writer, director, artist) %></li>
+        <li class="review__extra"><%= extra(medium, writer, director, artist, venue) %></li>
 
-        <% if extra_2(medium, director, actors, label, date_release).present? %>
-          <li class="review__extra-2"><%= extra_2(medium, director, actors, label, date_release) %></li>
+        <% if extra_2(medium, director, actors, label, date_release, date_opening, date_closing).present? %>
+          <li class="review__extra-2"><%= extra_2(medium, director, actors, label, date_release, date_opening, date_closing) %></li>
         <% end %>
 
         <% if extra_3(medium, venue, country, date_release).present? %>

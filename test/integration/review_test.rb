@@ -41,6 +41,18 @@ class ReviewTest < ActionDispatch::IntegrationTest
     assert_dom "div.review__text", text: "On Open the Gates Irreversible Entanglements take us on a trip through space and time via poetry and jazz, Latin and Afro-Caribbean beats, avant-garde free improvisation and other-worldly electronics. It’s an enthralling journey."
   end
 
+  test "the page correctly renders a visual art review" do
+    visit_review_page(4)
+
+    assert_dom "p.review__back-link", text: "Back to reviews"
+    assert_dom "p.review__medium", text: "Visual art"
+    assert_dom "li.review__title", text: "Anselm Kiefer: Early Works"
+    assert_dom "li.review__extra", text: "Ashmolean Museum, Oxford"
+    assert_dom "li.review__extra-2", text: "14 February 2025 to 15 June 2025"
+    assert_dom "figcaption.image__caption", text: "Die Etsch (The Adige)"
+    assert_dom "div.review__text", text: "What does it mean to be an artist in the wake of the worst atrocity in human history? Is it still possible to produce beauty in such circumstances? How and why do people get seduced by the ideas and reality of genocide? Could it happen again?"
+  end
+
   # Test that the fallback image renders when there is not an image uploaded
 
   private

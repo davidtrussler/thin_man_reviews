@@ -6,20 +6,24 @@ module ReviewHelper
       "Cinema"
     elsif medium == "music_recorded"
       "Recorded music"
+    elsif medium == "art_visual"
+      "Visual art"
     end
   end
 
-  def extra(medium, writer, director, artist)
+  def extra(medium, writer, director, artist, venue)
     if medium == "theatre"
       sanitize("By <span>#{writer}</span>")
     elsif medium == "cinema"
       sanitize("Directed by <span>#{director}</span>")
     elsif medium == "music_recorded"
       sanitize("By <span>#{artist}</span>")
+    elsif medium == "art_visual"
+      venue
     end
   end
 
-  def extra_2(medium, name, actors, label, date_release)
+  def extra_2(medium, name, actors, label, date_release, date_opening, date_closing)
     if medium == "theatre"
       sanitize("Directed by <span>#{name}</span>")
     elsif medium == "cinema"
@@ -39,6 +43,8 @@ module ReviewHelper
       sanitize("With #{actors_string}")
     elsif medium == "music_recorded"
       sanitize("#{label}, <time datetime='#{date_release.strftime("%Y-%m-%d")}'>#{date_release.strftime("%Y")}</time>")
+    elsif medium == "art_visual"
+      sanitize("<time datetime='#{date_opening.strftime("%Y-%m-%d")}'>#{date_opening.strftime("%-e %B %Y")}</time> to <time datetime='#{date_closing.strftime("%Y-%m-%d")}'>#{date_closing.strftime("%-e %B %Y")}</time>")
     end 
   end
 
@@ -52,7 +58,7 @@ module ReviewHelper
 
   def extra_4(medium, date_opening, date_closing, running_time)
     if medium == "theatre"
-      sanitize("<time datetime='#{date_opening.strftime("%Y-%m-%d")}'>#{date_opening.strftime("%e %B %Y")}</time> to <time datetime='#{date_closing.strftime("%Y-%m-%d")}}'>#{date_closing.strftime("%e %B %Y")}</time>")
+      sanitize("<time datetime='#{date_opening.strftime("%Y-%m-%d")}'>#{date_opening.strftime("%e %B %Y")}</time> to <time datetime='#{date_closing.strftime("%Y-%m-%d")}}'>#{date_closing.strftime("%-e %B %Y")}</time>")
     elsif medium == "cinema"
       "#{running_time} minutes"
     end
