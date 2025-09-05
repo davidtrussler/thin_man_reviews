@@ -41,10 +41,10 @@
 
       <ul class="review__details">
         <li class="review__title"><%= title %></li>
-        <li class="review__extra"><%= extra(medium, writer, director, artist) %></li>
+        <li class="review__extra"><%= extra(medium, writer, director, artist, venue) %></li>
 
-        <% if extra_2(medium, director, actors, label, date_release).present? %>
-          <li class="review__extra-2"><%= extra_2(medium, director, actors, label, date_release) %></li>
+        <% if extra_2(medium, director, actors, label, date_release, date_opening, date_closing).present? %>
+          <li class="review__extra-2"><%= extra_2(medium, director, actors, label, date_release, date_opening, date_closing) %></li>
         <% end %>
 
         <% if extra_3(medium, venue, country, date_release).present? %>
@@ -61,50 +61,51 @@
   </article>
 </div>
 
-<%
-# getReview() {
-#   let html = ``;
+<%# Code from old version for reference %>
 
-#   html += `<p class="review__medium">${this.values.medium}</p>`;
+<%# getReview() {
+  let html = ``;
 
-#   html +=
-#     `<div class="review__heading">
-#       <figure class="review__image">
-#         <img src="${this.values.img_main}" alt=""/>`;
+  html += `<p class="review__medium">${this.values.medium}</p>`;
 
-#   if (this.values.img_main_caption) {
-#     html += `<figcaption class="image__caption">${this.values.img_main_caption}</figcaption>`;
-#   }
+  html +=
+    `<div class="review__heading">
+      <figure class="review__image">
+        <img src="${this.values.img_main}" alt=""/>`;
 
-#   html +=
-#       `</figure>
-#       <ul class="review__details">`;
+  if (this.values.img_main_caption) {
+    html += `<figcaption class="image__caption">${this.values.img_main_caption}</figcaption>`;
+  }
 
-#   html += `<li class="review__title">${this.values.title}</li>`;
+  html +=
+      `</figure>
+      <ul class="review__details">`;
 
-#   html += `<li class="review__extra">${this.values.extra}</li>`;
+  html += `<li class="review__title">${this.values.title}</li>`;
 
-#   if (this.values.extra_2) {
-#     html += `<li class="review__extra-2">${this.values.extra_2}</li>`
-#   }
+  html += `<li class="review__extra">${this.values.extra}</li>`;
 
-#   if (this.values.extra_3) {
-#     html += `<li class="review__extra-3">${this.values.extra_3}</li>`
-#   }
+  if (this.values.extra_2) {
+    html += `<li class="review__extra-2">${this.values.extra_2}</li>`
+  }
 
-#   if (this.values.extra_4) {
-#     html += `<li class="review__extra-4">${this.values.extra_4}</li>`
-#   }
+  if (this.values.extra_3) {
+    html += `<li class="review__extra-3">${this.values.extra_3}</li>`
+  }
 
-#   html +=
-#       `</ul>
-#     </div>`
+  if (this.values.extra_4) {
+    html += `<li class="review__extra-4">${this.values.extra_4}</li>`
+  }
 
-#   html +=
-#     `<div class="review__text">
-#       ${this.data.text}
-#     </div>`
+  html +=
+      `</ul>
+    </div>`
 
-#   return html;
-# }
+  html +=
+    `<div class="review__text">
+      ${this.data.text}
+    </div>`
+
+  return html;
+}
 %>
