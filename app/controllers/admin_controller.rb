@@ -1,4 +1,8 @@
 class AdminController < ApplicationController
+  before_action only: %i[show new] do
+    require_permissions
+  end
+
   def show
     render 'show'
   end
@@ -50,5 +54,14 @@ class AdminController < ApplicationController
       :thumbnail_image,
       :main_image
     )
+  end
+
+  def require_permissions
+    current_user
+
+    return if @current_user != nil
+
+    redirect_to login_path
+    flash[:danger] = "You do not have the correct permissions for this action"
   end
 end
