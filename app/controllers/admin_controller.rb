@@ -4,7 +4,8 @@ class AdminController < ApplicationController
   end
 
   def show
-    render 'show'
+    @reviews = Review.all
+    render 'admin/show'
   end
 
   def new
