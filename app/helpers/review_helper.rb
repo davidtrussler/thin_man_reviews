@@ -1,4 +1,5 @@
 module ReviewHelper
+  # TODO: Add other mediums
   def medium(medium)
     case medium
     when "theatre"
@@ -9,6 +10,8 @@ module ReviewHelper
       "Recorded music"
     when "art_visual"
       "Visual art"
+    else
+      "No medium"
     end
   end
 
