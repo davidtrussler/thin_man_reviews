@@ -24,7 +24,7 @@
             <td><%= review.title %></td>
             <td><%= medium(review.medium) %></td>
             <td><%= review.created_at.to_fs(:thin_man_time) %></td>
-            <td><%= link_to "Edit", edit_review_path(review) %> | Delete</td>
+            <td><%= link_to "Edit", edit_review_path(review) %> | <%= link_to "Delete", delete_review_path(review) %></td>
           </tr>
         <% end %>
       </tbody>

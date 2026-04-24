@@ -14,8 +14,6 @@ class AdminController < ApplicationController
   end
 
   def create
-    # debugger
-
     @review = Review.new(review_params) # Not the final implementation!
 
     @review.thumbnail_image.attach(params[:thumbnail_image])
@@ -27,6 +25,16 @@ class AdminController < ApplicationController
     else
       render 'show', status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+    render 'admin/edit'
+  end
+
+  def delete
+    @review = Review.find(params[:id])
+    render 'admin/delete'
   end
 
   private
