@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   # Delete a review
   get '/admin/delete/:id', to: 'admin#delete', as: 'delete_review'
+  post '/admin/delete/:id', to: 'admin#destroy', as: 'destroy_review'
 
   # Admin login page
   # Creates/gets/destroys user sessions

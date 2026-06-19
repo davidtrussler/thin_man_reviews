@@ -37,6 +37,12 @@ class AdminController < ApplicationController
     render 'admin/delete'
   end
 
+  def destroy
+    Review.find(params[:id]).destroy!
+    flash[:success] = "Review deleted"
+    redirect_to admin_url
+  end
+
   private
 
   def review_params
