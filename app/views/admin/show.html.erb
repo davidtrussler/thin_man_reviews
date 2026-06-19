@@ -1,5 +1,9 @@
 <div class="container">
   <div class="main__inner">
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
+
     <h3>Admin section</h3>
 
     <%= link_to 'Add a new review', admin_new_path %>
