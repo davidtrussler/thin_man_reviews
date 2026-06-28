@@ -1,4 +1,6 @@
 <%= form_with(model: @review) do |f| %>
+  <%= hidden_field_tag :id, @review.id %>
+
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>

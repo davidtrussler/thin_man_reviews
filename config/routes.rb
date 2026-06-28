@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   # Edit a review
   get '/admin/edit/:id', to: 'admin#edit', as: 'edit_review'
+  patch 'review', to: 'admin#edit_review' # , as: 'update_review'
 
   # Delete a review
   get '/admin/delete/:id', to: 'admin#delete', as: 'delete_review'
