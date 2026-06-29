@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#show"
 
-  get '/review', to: 'review#show'
-
   # This may not be necessary
   # See https://guides.rubyonrails.org/routing.html#restricting-the-routes-created
   # resources :review
+
+  # Show a review
+  get '/review/:id', to: 'review#show'
 
   # Path to admin landing page
   get '/admin', to: 'admin#show'
