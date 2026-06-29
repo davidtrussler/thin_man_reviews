@@ -14,7 +14,7 @@ module HomeHelper
     link_to sanitize(
       "<div class='listing__image'>" + img_thumb + "</div>
         <div class='listing__content'>
-          <p class='listing__medium'>#{medium_string(review.medium)}</p>
+          <p class='listing__medium'>#{medium(review.medium)}</p>
           <p class='listing__title'>#{review.title}</p>
           <p class='listing__extra'>#{extra_string(review.medium, review)}</p>
         </div>"
@@ -22,25 +22,6 @@ module HomeHelper
   end
 
   private
-
-  # TODO:
-  # - Add other mediums
-  # - Avoid duplication with the review helper
-  #   - by putting shared methods in a shared helper
-  def medium_string(medium)
-    case medium
-    when "theatre"
-      "Theatre"
-    when "cinema"
-      "Cinema"
-    when "music_recorded"
-      "Recorded music"
-    when "art_visual"
-      "Visual art"
-    else
-      "No medium"
-    end
-  end
 
   def extra_string(medium, review)
     case medium

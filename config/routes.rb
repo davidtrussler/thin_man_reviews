@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#show"
 
-  get '/review', to: 'review#show'
+  # This may not be necessary
+  # See https://guides.rubyonrails.org/routing.html#restricting-the-routes-created
+  # resources :review
 
-  resources :review
+  # Show a review
+  get '/review/:id', to: 'review#show'
 
   # Path to admin landing page
   get '/admin', to: 'admin#show'
@@ -16,6 +19,14 @@ Rails.application.routes.draw do
   # Add a new review
   get '/admin/new', to: 'admin#new'
   post '/admin/new', to: 'admin#create'
+
+  # Edit a review
+  get '/admin/edit/:id', to: 'admin#edit', as: 'edit_review'
+  patch 'review', to: 'admin#edit_review' # , as: 'update_review'
+
+  # Delete a review
+  get '/admin/delete/:id', to: 'admin#delete', as: 'delete_review'
+  post '/admin/delete/:id', to: 'admin#destroy', as: 'destroy_review'
 
   # Admin login page
   # Creates/gets/destroys user sessions

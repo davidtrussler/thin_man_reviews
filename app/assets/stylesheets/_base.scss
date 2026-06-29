@@ -35,6 +35,13 @@ q {
   }
 }
 
+table {
+  td, th {
+    border: 1px solid;
+    padding: 0.5rem;
+  }
+}
+
 .container {
   max-width: px(1200); 
   width: calc(100% - ($outer-margin * 2));

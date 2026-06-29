@@ -1,9 +1,33 @@
 <div class="container">
   <div class="main__inner">
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
+
     <h3>Admin section</h3>
-    <ul>
-      <li>Action 1</li>
-      <li>Action 2</li>
-    </ul>
+
+    <%= link_to 'Add a new review', admin_new_path %>
+
+    <table>
+      <caption>Live reviews</caption>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Medium</th>
+          <th>Date created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reviews.each do |review| %>
+          <tr>
+            <td><%= review.title %></td>
+            <td><%= medium(review.medium) %></td>
+            <td><%= review.created_at.to_fs(:thin_man_time) %></td>
+            <td><%= link_to "Edit", edit_review_path(review) %> | <%= link_to "Delete", delete_review_path(review) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="main__inner">
+    <h3>Admin section</h3>
+    <h4>Are you sure you want to delete <%= @review.title %>?</h4>
+
+    <%= form_with(url: destroy_review_path) do |f| %>
+      <%= f.submit "Delete" %>
+      <%= link_to "Cancel",  admin_path %>
+    <% end %>
+  </div>
+</div>
