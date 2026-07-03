@@ -1,3 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# empty
+david:
+  id: 1
+  name: David Trussler
+  email: mail@davidtrussler.net
+  # password: skyblue
