@@ -15,8 +15,8 @@ gem "puma",                       "5.6.4"
 gem "bootsnap",                   "1.12.0", require: false
 
 group :development, :test do
+  gem "byebug", "~> 13.0"
   gem "sqlite3", "1.4.2"
-  gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
@@ -24,6 +24,7 @@ group :development do
 end
 
 group :test do
+  gem "byebug", "~> 13.0"
   gem "capybara",                 "3.37.1"
   gem "selenium-webdriver",       "4.2.0"
   gem "webdrivers",               "= 5.3.0"
