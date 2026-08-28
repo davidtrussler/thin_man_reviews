@@ -9,9 +9,25 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   #   @user = users(:david)
   # end
 
+  test "should return the user to the login page if they do not have permissions with message" do
+    get admin_path
+
+    assert_includes flash[:danger], "You do not have the correct permissions for this action"
+    assert_redirected_to login_path
+  end
+
   test "should render the Admin landing page if the current user has permissions" do
     user = users(:david) # User.create(email: "mail@davidtrussler.net")
-    sign_in_as(user)
+
+    puts "++user++"
+    puts user
+    puts "++++"
+
+    # sign_in_as(user)
+    # SessionsHelper::log_in(user)
+
+    # require_permissions = true
+    # @current_user = user
 
     # reset_session
     # log_in user    # @current_user = users(:david)
@@ -26,41 +42,30 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
 
     # session[:user_id] = user.id
 
-    puts "++current_user++"
-    puts @current_user
-    puts "++++"
+    # puts "++current_user++"
+    # puts @current_user
+    # puts "++++"
 
-    puts "++controller++"
-    puts @controller.action_name
-    puts "++++"
+    # puts "++controller++"
+    # puts @controller.action_name
+    # puts "++++"
 
-    puts "++request++"
-    puts @request
-    puts "++++"
+    # puts "++request++"
+    # puts @request
+    # puts "++++"
 
-    puts "++response++"
-    puts @response.body
-    puts "++++"
+    # puts "++response++"
+    # puts @response.body
+    # puts "++++"
 
-    puts "++session++"
-    puts session[:user_id]
-    puts "++++"
+    # puts "++session++"
+    # puts session[:user_id]
+    # puts "++++"
 
     # get :show
     # assert true
     # assert_template "admin/show"
     assert_response :success
-  end
-
-  test "should return the user to the login page if they do not have permissions" do
-    @current_user = nil
-
-    puts "++@current_user++"
-    puts @current_user
-    puts "++++"
-
-    get admin_path
-    assert false
   end
 
   def sign_in_as(user)
@@ -70,12 +75,14 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     puts user
     puts "++++"
 
-    post login_path, params: {
-      session: {
-        email: user.email,
-        password: user.password
-      }
-    }
+    log_in(user)
+
+    # post login_path, params: {
+    #   session: {
+    #     email: user.email,
+    #     password: user.password
+    #   }
+    # }
   end
 
   # def login_as(user)
